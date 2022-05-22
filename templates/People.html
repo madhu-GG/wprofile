@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}People{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+<ul class="people_container">
+    {% for name, person in people.items() %}
+        <li class="person_card">
+            <span> {{ person.picture }} </span>
+            <span> {{ person.name }} </span>
+            <span> {{ person.phone_no }} </span>
+            <span> {{ person.email }} </span>
+        </li>
+    {% endfor %}
+    <li class="add_person_card">
+        <form method="post">
+            <label for="username"> Name </label>
+            <input type="text" name="username" id="username" required>
+            <label for="phone_no">Phone Number</label>
+            <input type="phone" name="phone_no" id="phone_no">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email_id">
+            <input type="submit" value="Add Person">
+        </form>
+    </li>
+</ul>
+{% endblock %}
